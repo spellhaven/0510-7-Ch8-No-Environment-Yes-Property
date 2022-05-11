@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<!-- 이 두 파일을 불러와 볼게요~~~ 하하호호~~~ -->
+	<context:property-placeholder location="classpath:admin.properties, classpath:sub_admin.properties"/>
+
+	<bean id = "adminConn" class = "com.spellhaven.spring0510_7.AdminConnection">
+		<property name = "adminId">
+			<value>${admin.Id}</value> <!-- ${EL태식이 오랜만이네} -->
+		</property>
+		<property name = "adminPw">
+			<value>${admin.Pw}</value>
+		</property>
+		<property name = "sub_adminId">
+			<value>${sub_admin.Id}</value>
+		</property>
+		<property name = "sub_adminPw">
+			<value>${sub_admin.Pw}</value>
+		</property>
+	</bean>
+
+</beans>
